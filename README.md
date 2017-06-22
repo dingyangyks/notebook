@@ -1,2 +1,5 @@
 ## NOTEBOOK
 
+```
+var a="love"
+```

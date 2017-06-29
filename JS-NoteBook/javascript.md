@@ -27,7 +27,7 @@ for(var i=oli.length-1;i>=0;i--){
     oUl.removeChild(oUl..childnodes[i]);
 }
 ```
-B.
+B.  
 2.**感受作用域**  
  ```js
     var a=5;

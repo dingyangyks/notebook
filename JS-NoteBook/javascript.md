@@ -73,3 +73,50 @@ B.
             },30) 
         }
   ```
+  ## 4.classList属性
+   作用：返回元素的类名，只读的，不过可以通过add()，remove()修改  
+   他所拥有的属性：length(长度) value(值)  
+   方法：  
+   `add()` 在元素中添加一个或多个类名    
+   `remove()` 移除一个或者多个类名 **移除不存在的类名时不会报错**  
+   `contains` 返回布尔值，判断类名是否存在  
+   `toggle(class,true/false)` 在元素中切换类名 第一个参数：要移除或添加的类名，添加返回true，移除返回false 第二个参数可选，布尔值，用于强制是否移除或者添加。  
+   实例代码：
+   ```html
+   <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="item SSSS"></div>
+    <script type="text/javascript">
+        var adiv=document.getElementsByClassName('item')[0];
+        var x=adiv.classList
+        x.add("dddd","sadsadasd");
+        // x.remove("item");
+        x.toggle("item");
+        x.toggle("ggggg");
+        x.toggle("eweqweqw",false);//强制添加不上
+        console.log(x.contains("dddd"));
+        console.log(adiv.classList)
+    </script>
+    </body>
+    </html>
+   ```  
+ ## 5.各种数据转换为布尔值的规则  
+ 
+| 数据类型 | 转换为true |转换为false |  
+|---------| ---------: | :-------: |
+|Boolean  |    true    |   false   |
+|string   | 任何空字符创|''(空字符串)|
+|Number   | 任何非零数字（包括无穷)|0/NAN|
+|object   | 任何对象    | null |
+|Undefined|    ——      | undefined|
+
+
+    
+

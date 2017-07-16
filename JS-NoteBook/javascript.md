@@ -116,6 +116,58 @@ B.
 |Number   | 任何非零数字（包括无穷)|0/NAN|
 |object   | 任何对象    | null |
 |Undefined|    ——      | undefined|
+## 6.break continue return的区别  
+ **break**  
+  用于跳出循环，跳出该次循环结束后，强制执行循环后的代码，
+   ```js
+    var num = 0;
+    !function () {
+        for (var i = 1; i < 10; i++) {
+            if (i % 5 === 0) {
+                break;
+            }
+            num++;
+        }
+    }();
+    console.log(num) //4
+   ```          
+   上面的代码的break的作用就是在当i=5时，终止循环不执行接下来的循环,且连接下来的num++都没有执行，**它只能跳出一层循环**             
+ **continue**
+  用于跳出正在循环的循环，开始进行下一次循环 ，
+  上面的代码把break改为continue
+  ```js
+   var num = 0;
+    !function () {
+        for (var i = 1; i < 10; i++) {
+            if (i % 5 === 0) {
+                continue;
+            }
+            num++;
+        }
+    }();
+    console.log(num) //8
+  ```   
+   只换了关键词，换成continue后结果大大不同，如果没有关键字，循环会执行9次，但是当存在continue时，当i=5时（i任然会循环++），会在num自加前跳出第五次循环，然后执行第6次，所以num最后一共循环了8次，
+
+ **return**   
+  return语句会终止函数的执行并返回函数的值
+  ```js
+    var num=0;
+    function add(){
+        num++;
+        return num;
+    }
+    console.log(add())//1
+  ```
+  在函数中return会返回指定的值，如没有return或者return后面的值则会返回undefined；
+  ```js
+    var num=0;
+    function add(){
+        num++;
+        return;
+    }
+    console.log(add())//undefined
+  ```
 
 
     

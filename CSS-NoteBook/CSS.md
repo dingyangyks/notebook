@@ -76,6 +76,7 @@ position：relative不脱离文本流，会撑开body；相对于父元素定位
     <div id='b'>元素2</div>
     </div>
     ```
+    
   `>` 表示父子关系,`+` 表示兄弟关系，  
   ```css
         #e:hover + #f{

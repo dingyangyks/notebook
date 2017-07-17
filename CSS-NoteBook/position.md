@@ -50,7 +50,7 @@
         }
  ```
   重点的CSS代码如上，他的效果如下：
-  ![图片](file:///E:/BaiduYunDownload/github/notebook/img/QQ图片20170717194337.png)   
+  ![图片](https://github.com/dingyangyks/notebook/blob/master/img/QQ%E5%9B%BE%E7%89%8720170717194337.png?raw=true)   
  >从结果上来看：  
    1.首先div1脱离了文档流，而且并没有根据它的父级元素div2来定位，而是根据`position：absolute；`的div3来进行定位的。  
    2.div3也是绝对定位，它也脱离了文档流，所以此时body的高度为0，没有撑开body，而他是相对于html文档来进行定位的。   

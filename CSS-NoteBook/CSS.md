@@ -1,47 +1,4 @@
 # CSS  
-## **position定位**  
-1.position：absolute；绝对定位  
-  position：absolute脱离文本流，不会撑开body；相对于父元素定位， **不受父元素padding的影响**   
-  * 如果存在父元素，父元素要设置position属性（absolute/relative），且要设置lrtb值，缺一不可，才能使子元素进入父元素内部。
-
-  * 如果不存在父元素， position：absolute是以浏览器左上角为坐标原点开始定位而不是body；但是当body的margin：0；时body等于浏览器窗口。
-
-  * 如果存在LRTB，则不受父元素padding的影响，  
-  ```css
-     #div1{
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        width: 150px;
-        height: 150px;
-        background-color: red;
-        }
-    body{
-        padding: 10px
-        }
-  ```
-  结果如下：
-   ![图片](https://ooo.0o0.ooo/2017/06/26/5950c2fb096e0.png)
-
-  如果不存在，则受padding影响。
-  ```css
-     #div1{
-        position: absolute;
-        /*left: 0px;
-        top: 0px;*/
-        width: 150px;
-        height: 150px;
-        background-color: red;
-        }
-    body{
-        padding: 10px
-        }
-  ```
-  结果如下：    
-  ![图片](https://ooo.0o0.ooo/2017/06/26/5950c2331ceef.png)  
-  
-2.position：relative；相对定位   
-position：relative不脱离文本流，会撑开body；相对于父元素定位，  
 **受父元素padding的影响** 
 *  无论父级存在不存在，无论有没有TRBL，均是以父级的左上角进行定位，但是父级的Padding属性会对其影响。
 

@@ -1,17 +1,4 @@
 # CSS  
-**受父元素padding的影响** 
-*  无论父级存在不存在，无论有没有TRBL，均是以父级的左上角进行定位，但是父级的Padding属性会对其影响。
-
-* 如果父元素不存在，则父元素默认为body，此时会以body的左上角为原点进行定位，如果body存在margin则不是浏览器的左上角为原点。
-
-* 如果用position来布局页面，父级元素的position属性必须为relative，而定位于父级内部某个位置的元素，最好用 absolute，因为它不受父级元素的padding的属性影响，当然你也可以用position，不过到时候计算的时候不要忘记padding的值    
-
-3.position：staic；静态定位  
-指定元素使用正常的布局行为，即元素在文档流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
-  
-4.position：fixed；固定定位   
-相对于浏览器窗口定位，且不会随着滚动条的移动而变化
-
 ## 利用hover改变其他元素  
  用`hover`不单单可以改变使用它的元素，还可以改变其他元素；不过是有限定条件的：  
  * 要改变得元素是使用`hover`的子元素

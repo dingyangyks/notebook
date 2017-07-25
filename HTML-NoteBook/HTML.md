@@ -250,3 +250,56 @@
 
 这样一个圣杯布局的三栏就好了：
 ![photo](https://github.com/dingyangyks/notebook/blob/master/img/Screenshot%20from%202017-07-25%2014-47-40.png?raw=true)
+
+
+## 双飞翼布局
+这也是一种常见的三栏布局，和圣杯布局一样，他左右侧栏宽度固定，中间栏自适应。但是思想不一样。  
+
+双飞翼布局中间栏通过左右margin值为左右边栏留出位置，而中间栏的父元素设置浮动。
+这样左右栏一个左浮动，一个右浮动。再通过负margin进行移动。  
+
+**注意margin在垂直和水平方向的百分比都是相对于父元素的宽度来移动的**
+
+代码如下：
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .content {
+  	    float: left;
+  	    width: 100%;
+        }
+        .main {
+  	    height: 200px;
+  	    margin-left: 110px;
+  	    margin-right: 220px;
+  	    background-color: green;
+        }
+	.left {
+	    float: left;
+	    height: 200px;
+	    width: 100px;
+		/*相对于父元素的宽度*/
+	    margin-left: -100%;
+	    background-color: red;
+	}
+	.right {
+	    width: 200px;
+	    height: 200px;
+	    float: right;
+		/*相对于父元素 body  理解负margin*/
+	    margin-left: -200px;
+	    background-color: blue;
+	}	
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="main"></div>
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+</body>
+</html>
+```

@@ -196,9 +196,10 @@ var a = null;
 alert(typeof a); //object
 ```
 2. **如果定义的变量在将来准备保存一个对象，则最好把该变量初始化为`null`，这样将来只要检测是否为null值就知道是否已经保存了一个对象的引用**  
-3. `undefined`是派生自`null`的，所以对他们进行相等性测试则会返回`true`
+3. `undefined`是派生自`null`的，所以对他们进行相等性测试则会返回`true`，**但是他们不全等**
 ```js
 alert(null == undefined);//true
+alert(null === undefined);// false
 ```
 
 ## 8.数值转换

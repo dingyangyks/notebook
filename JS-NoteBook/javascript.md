@@ -231,3 +231,9 @@ alert(null === undefined);// false
 2. 他和`parseInt()`的区别在于，他会忽略前导0；
 3. `parseFloat()`他只有一个参数，所以**智能解析十进制，十六进制始终会被解析成0**
 
+## 9. `document.write()`和`innerHTML`的区别：
+>`document.write()`是直接写入到页面的内容流，如果在写之前没有调用`document.open()`, 浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。  
+`innerHTML`则是DOM页面元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改`document.documentElement.innerElement`。  
+`innerHTML`很多情况下都优于`document.write()`，其原因在于其允许更精确的控制要刷新页面的那一个部分。
+`document.write()`会重绘整个页面，而`innerHTML`是可以重绘页面的某一部分
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+            overflow-y:scroll;
+            overflow-x:scroll;
+            font-size: 120px;
+        }
+        p{
+            font-size: 20px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body >
+    <p style="line-height:50px">asasfffffffffffffffffffffffffffffffffffffffffffffffffffffffdsadsad</p>
+    <p onclick="">asfasfasfasffffffffffffffffffffffffffffffffsaf</p>
+    dasda所得到的多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多asd<input type="text">
+    <button value="hah">sdadsad</button>
+ <script>
+        var btn = document.getElementsByTagName("button")[0];
+        document.body.addEventListener("click",function(ev){
+            ev = event;
+            console.log(ev.type);
+            console.log(ev.bubbles);
+            console.log(ev.currentTarget);
+            console.log(ev.detail);
+            console.log(ev.eventPhase);
+            console.log(ev.target);
+            console.log(ev.view);
+            if(ev.currentTarget == this){
+                console.log('shide')
+            }
+        })
+        window.addEventListener('resize',function(){
+            console.log('sssssssssss')
+        })
+        window.addEventListener('scroll',function(){
+            console.log('gun')
+        })
+        // console.log(document.documentElement.clientWidth);
+        // console.log(window.innerWidth);
+        // console.log(document.documentElement.scrollWidth);
+        // console.log(document.body.scrollLeft);
+        // var support = document.implementation.hasFeature("CSS2","2.0");
+        // console.log(support)
+        // var myp = document.querySelector("p");
+        // console.log(myp.innerHTML)
+        // var myps = document.querySelectorAll("p");
+        // myps.style.cssText = "color:red";
+        // console.log(myps.length)
+        // myp.style.cssText = "font-size:50px";
+        // console.log(myp.style.cssText)
+        // console.log(myp.style.getPropertyValue("line-height"));
+        // console.log(myp.style.getPropertyCSSValue("border"));
+        // var myinput =document.getElementsByTagName("input")[0];
+        // myinput.focus();
+        // console.log(myinput ===document.activeElement)
+    </script>
+</body>
+
+</html>

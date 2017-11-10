@@ -293,10 +293,238 @@
 // aaa(a);
 // console.log(a);10
 
-var a = [1,2,3];
-function aaa(a){
-    a = [1,2,3,4]
-    console.log(a);//[1,2,3,4]
+// var a = [1,2,3];
+// function aaa(a){
+//     a = [1,2,3,4]
+//     console.log(a);//[1,2,3,4]
+// }
+// aaa(a);
+// console.log(a);//[1,2,3]
+
+
+// 私有变量
+// function Person(name){
+//     this.getName = function(){
+//         return name;
+//     };
+//     this.setName = function(value){
+//         name = value;
+//     };
+// }
+
+// var  person = new Person('ding');
+// console.log(person.getName());
+// person.setName('qi');
+// console.log(person.getName());
+
+// function MyObject(){
+//     //私有变量和方法
+//     var p = 10;
+//     function pFunc(){
+//         return false;
+//     }
+
+//     this.publicMethod = function(){
+//         p++;
+//         return pFunc();
+//     };
+// }
+
+// var my = new MyObject();//每创建一个实例 都会创建一次私有变量和方法
+// console.log(my.publicMethod());
+
+
+// // 静态私有变量
+// (function(){
+//     var privateVar = 10;
+//     function privateFun(){
+//         return false;
+//     }
+
+//     MyObj = function(){};
+
+//     MyObj.prototype.public = function(){
+//         privateVar++;
+//         return privateFun();
+//     };
+// })();
+
+// var myobj1 = new MyObj();//这样创建一个实例,包含一个访问私有变量和方法的一个特权方法,
+// var myobj2 = new MyObj();
+// console.log(myobj1.public());
+// console.log(myobj2.public());
+
+// (function(){
+//     var name = '张';
+//     Person1 = function(value){
+//         name = value;
+//     };
+
+//     Person1.prototype.getName = function () {
+//         return name;
+//     };
+
+//     Person1.prototype.setName =function(value){
+//         name = value;
+//     };
+// })()
+
+// var per1 = new Person1();
+// console.log(per1.getName());//ding
+// per1.setName('long');
+// console.log(per1.getName());//long
+
+// var per2 = new Person1('xu');
+// console.log(per1.getName());//xu
+// console.log(per2.getName());//xu
+
+// //per1,per2都是Person1的实例,都继承Person1原型上的方法,可以访问到getName和setName,getName又可以访问到私有作用域的name
+// //************************************************* */
+// Person2 = function(value){
+//     name = value;//这个name是全局的name
+// };
+
+// Person2.prototype.getName = function () {
+//     return name;
+// };
+
+// Person2.prototype.setName =function(value){
+//     name = value;
+// };
+
+// var per3 = new Person1('ding');
+// console.log(per3.getName());//ding
+// per3.setName('long');
+// console.log(per3.getName());//long
+
+// var per4 = new Person1('xu');
+// console.log(per4.getName());//xu
+// console.log(per3.getName());//xu
+
+
+
+// 继承
+// function Aaa(){
+//     this.property = true;
+// }//Aaa是Object的实例
+
+// //在原型上添加一个方法
+// Aaa.prototype.getAaaValue = function () {
+//     return this.property;
+// }
+
+// Aaa.myself = function () {
+//     this.name = 'ding';
+// }
+
+// console.log(Aaa);
+
+// function Bbb(){
+//     this.Bbbproperty = false;
+// }
+
+// //继承
+// Bbb.prototype = new Aaa();
+
+// Bbb.prototype.getBbbValue = function() {
+//     return this.Bbbproperty;
+// }
+
+// var instance = new Bbb();//定义了一个Bbb的实例
+// console.log(instance.getAaaValue());
+// console.log(instance.getBbbValue());
+// console.log(instance)
+
+var str = 'asdfssaaasasasasaa';
+var json = {};
+
+for (var i = 0; i < str.length; i++) {
+        if(!json[str.charAt(i)]){
+                json[str.charAt(i)] = 1;
+        }else{
+                json[str.charAt(i)]++;
+        }
+};
+var iMax = 0;
+var iIndex = '';
+for(var i in json){
+        if(json[i]>iMax){
+                iMax = json[i];
+                iIndex = i;
+        }
 }
-aaa(a);
-console.log(a);//[1,2,3]
+console.log('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+
+//继承
+function Person(name){
+        this.name = name;
+}
+
+Person.prototype.showName = function(){
+        console.log(this.name);
+}
+
+function Worker(name, job){
+        Person.apply(this,arguments)
+        this.job = job;
+}
+for(var i in Person.prototype){
+        Worker.prototype = Person.prototype;
+}
+new Worker('sl', 'coders').showName();
+
+//编写一个方法 求一个字符串的字节长度;
+//假设一个中文占两个字节
+var str = '22两是';
+
+console.log(getStrlen(str))
+
+function getStrlen(str){
+        var json = {len:0};
+        var re = /[\u4e00-\u9fa5]/;
+        for (var i = 0; i < str.length; i++) {
+                if(re.test(str.charAt(i))){
+                        json['len']++;
+                }
+        };
+        return json['len']+str.length;
+}
+//变量提升
+function testvo(name,age){
+    var a = 1;
+    var b = function (){
+        return 2;
+    }
+    function C(){
+        return 3;
+    }
+    var c = 4;
+}
+
+console.log(testvo('ding',21))
+
+// this 指向
+var point = {
+    x:0,
+    y:0,
+    moveTo:function(x,y){
+        this.x = this.x + x;
+        this.y = this.y + y;
+        console.log(this.x,this.y,this);
+    }
+};
+point.moveTo(1,2)
+
+//
+function Point(x,y){
+    this.x = x;
+    this.y = y;
+}
+
+var np = new Point(1,1);
+console.log(np.x);
+var p = Point(2,2);
+// console.log(p.x);报错
+console.log(global.x);
+//使用new操作符是构造函数式，即通过new运算符调用构造函数Function来创建函数
+//不使用 new 并不是实例化，只是调用函数把返回值赋给变量。

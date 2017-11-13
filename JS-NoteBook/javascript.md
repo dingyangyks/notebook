@@ -237,3 +237,6 @@ alert(null === undefined);// false
 `innerHTML`很多情况下都优于`document.write()`，其原因在于其允许更精确的控制要刷新页面的那一个部分。
 `document.write()`会重绘整个页面，而`innerHTML`是可以重绘页面的某一部分
 
+## 10. `attrbitues`和`Property`的区别
+[链接](http://web.jobbole.com/83129/)
+

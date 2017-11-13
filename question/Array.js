@@ -64,4 +64,42 @@ Array.prototype._push = function (a) {
 }
 
 
+// 遍历对象属性
+var obj = {
+    x:100,
+    y:200,
+    z:300
+};
+var key;
+for(key in obj){
+    if(obj.hasOwnProperty(key)) {
+        // console.log(key,obj[key]);
+    }
+}
+
+// 既可以遍历数组也可以遍历对象
+function objAndArr (fn,obj) {
+    var key;
+    if(obj instanceof Array) {
+        obj.forEach(function(item,index,array) {
+            fn(item,index,array);
+        })
+    } else {
+        for(key in obj) {
+            if(obj.hasOwnProperty(key)){
+                fn(key,obj[key]);
+            }
+        }
+    }
+}
+objAndArr(function(key,val){
+    console.log(key,val);
+},obj)
+
+
+var obj = {a:1};
+console.log(obj.a);//1
+console.log(obj['a']);//1
+console.log(obj[a]);//a is not defined
+
 

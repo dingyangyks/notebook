@@ -280,7 +280,7 @@
 // function aaa(a){
 //     a += 3;
 //     console.log(a);
-    
+
 // }
 // aaa(a);
 // console.log(a);
@@ -435,96 +435,156 @@
 // console.log(instance.getBbbValue());
 // console.log(instance)
 
-var str = 'asdfssaaasasasasaa';
-var json = {};
+// var str = 'asdfssaaasasasasaa';
+// var json = {};
 
-for (var i = 0; i < str.length; i++) {
-        if(!json[str.charAt(i)]){
-                json[str.charAt(i)] = 1;
-        }else{
-                json[str.charAt(i)]++;
+// for (var i = 0; i < str.length; i++) {
+//         if(!json[str.charAt(i)]){
+//                 json[str.charAt(i)] = 1;
+//         }else{
+//                 json[str.charAt(i)]++;
+//         }
+// };
+// var iMax = 0;
+// var iIndex = '';
+// for(var i in json){
+//         if(json[i]>iMax){
+//                 iMax = json[i];
+//                 iIndex = i;
+//         }
+// }
+// console.log('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+
+// //继承
+// function Person(name){
+//         this.name = name;
+// }
+
+// Person.prototype.showName = function(){
+//         console.log(this.name);
+// }
+
+// function Worker(name, job){
+//         Person.apply(this,arguments)
+//         this.job = job;
+// }
+// for(var i in Person.prototype){
+//         Worker.prototype = Person.prototype;
+// }
+// new Worker('sl', 'coders').showName();
+
+// //编写一个方法 求一个字符串的字节长度;
+// //假设一个中文占两个字节
+// var str = '22两是';
+
+// console.log(getStrlen(str))
+
+// function getStrlen(str){
+//         var json = {len:0};
+//         var re = /[\u4e00-\u9fa5]/;
+//         for (var i = 0; i < str.length; i++) {
+//                 if(re.test(str.charAt(i))){
+//                         json['len']++;
+//                 }
+//         };
+//         return json['len']+str.length;
+// }
+// //变量提升
+// function testvo(name,age){
+//     var a = 1;
+//     var b = function (){
+//         return 2;
+//     }
+//     function C(){
+//         return 3;
+//     }
+//     var c = 4;
+// }
+
+// console.log(testvo('ding',21))
+
+// // this 指向
+// var point = {
+//     x:0,
+//     y:0,
+//     moveTo:function(x,y){
+//         this.x = this.x + x;
+//         this.y = this.y + y;
+//         console.log(this.x,this.y,this);
+//     }
+// };
+// point.moveTo(1,2)
+
+// //
+// function Point(x,y){
+//     this.x = x;
+//     this.y = y;
+// }
+
+// var np = new Point(1,1);
+// console.log(np.x);
+// var p = Point(2,2);
+// // console.log(p.x);报错
+// console.log(global.x);
+// //使用new操作符是构造函数式，即通过new运算符调用构造函数Function来创建函数
+// //不使用 new 并不是实例化，只是调用函数把返回值赋给变量。
+
+// for (var i = 0; i < 5; i++) {
+//         !function(i) {
+//                 setTimeout(function () {
+//                         console.log(new Date, i);
+//                 }, 1000);
+//         }(i);
+// }
+
+// console.log(new Date, i);
+
+// function Elem(id) {
+//         this.elem = document.getElementById(id);
+// }
+
+// Elem.prototype.html = function (val) {
+//         var elem = this.elem;
+//         if(val) {
+//                 elem.innerHTML = val;
+//                 return this;
+//         } else {
+//                 return elem.innerHTML;
+//         }
+// }
+
+// Elem.prototype.on = function (type,fn) {
+//         var elem = this.elem;
+//         elem.addEventListener(type,fn);
+// console.log(new Date());
+
+// 获取横杠链接的日期
+function dateFormat() {
+        var date = new Date();
+        var year = date.getFullYear();
+
+        var month = date.getMonth() + 1;
+        if (month < 10) {
+                month = '0' + month;
         }
-};
-var iMax = 0;
-var iIndex = '';
-for(var i in json){
-        if(json[i]>iMax){
-                iMax = json[i];
-                iIndex = i;
+
+        var day = date.getDate();
+        if (day < 10) {
+                day = '0' + day;
         }
+
+        var result = year + '-' + month + '-' + day;
+        console.log(result);
 }
-console.log('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+dateFormat();
 
-//继承
-function Person(name){
-        this.name = name;
+// 长度一致的随机数
+function sameLen() {
+        var num = Math.random();
+        num = num + '';
+        num = num.slice(0, 7);
+        console.log(num);
 }
+sameLen();
 
-Person.prototype.showName = function(){
-        console.log(this.name);
-}
 
-function Worker(name, job){
-        Person.apply(this,arguments)
-        this.job = job;
-}
-for(var i in Person.prototype){
-        Worker.prototype = Person.prototype;
-}
-new Worker('sl', 'coders').showName();
-
-//编写一个方法 求一个字符串的字节长度;
-//假设一个中文占两个字节
-var str = '22两是';
-
-console.log(getStrlen(str))
-
-function getStrlen(str){
-        var json = {len:0};
-        var re = /[\u4e00-\u9fa5]/;
-        for (var i = 0; i < str.length; i++) {
-                if(re.test(str.charAt(i))){
-                        json['len']++;
-                }
-        };
-        return json['len']+str.length;
-}
-//变量提升
-function testvo(name,age){
-    var a = 1;
-    var b = function (){
-        return 2;
-    }
-    function C(){
-        return 3;
-    }
-    var c = 4;
-}
-
-console.log(testvo('ding',21))
-
-// this 指向
-var point = {
-    x:0,
-    y:0,
-    moveTo:function(x,y){
-        this.x = this.x + x;
-        this.y = this.y + y;
-        console.log(this.x,this.y,this);
-    }
-};
-point.moveTo(1,2)
-
-//
-function Point(x,y){
-    this.x = x;
-    this.y = y;
-}
-
-var np = new Point(1,1);
-console.log(np.x);
-var p = Point(2,2);
-// console.log(p.x);报错
-console.log(global.x);
-//使用new操作符是构造函数式，即通过new运算符调用构造函数Function来创建函数
-//不使用 new 并不是实例化，只是调用函数把返回值赋给变量。

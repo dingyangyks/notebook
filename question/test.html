@@ -1,54 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        
-    </style>
-</head>
-<body>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1><h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1><h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1><h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1><h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>    
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
-    <h1>gagagaga</h1>
+<html>
 
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: #aab4bc;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
     <script>
-        console.log(window.screenLeft,window.screenTop);
-        console.log(window.innerWidth,window.innerHeight);
-        console.log(window.outerWidth,window.outerHeight);
-        console.log(window.outerWidth - window.innerWidth,window.outerHeight - window.innerHeight);
-        console.log(document.body.clientWidth,document.body.clientHeight);
-        console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
-        console.log('***********************');
-        console.log(document.body.scrollHeight);
-        console.log(document.body.scrollTop);
-        console.log(window.navigator.vendor);
-        console.log(window.navigator.plugins);
-        console.log(window.navigator.userAgent);
-        
-        
+        window.onload = function () {
+
+            var odiv1 = document.getElementById("div1");
+            var obtn1 = document.getElementById("btn1");
+            var obtn2 = document.getElementById("btn2");
+            var obtn3 = document.getElementById("btn3");
+            var obtn4 = document.getElementById("btn4");
+            var timer = null;
+            function(){
+                
+            }
+
+
+
+            obtn1.onclick = function () {
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    odiv1.style.left = odiv1.offsetLeft + 5 + "px"
+
+                }, 30);
+            }
+            obtn2.onclick = function () {
+                clearInterval(timer)
+
+            };
+            obtn3.onclick = function () {
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    odiv1.style.left = odiv1.offsetLeft - 5 + "px"
+                    if (odiv1.offsetLeft < 0) {
+                        alert("!!!");
+
+                    };
+                }, 30)
+
+            };
+
+            obtn4.onclick = function () {
+                alert(odiv1.offsetLeft);
+
+            }
+
+
+
+
+
+        }
     </script>
+</head>
+
+<body>
+    <input type="button" value="向右移动" id="btn1"><input type="button" id="btn2" value="停止移动"><input type="button" value="向左移动"
+        id="btn3">
+    <input type="button" value="当前边距" id="btn4">
+    <div id="div1"></div>
 </body>
+
 </html>

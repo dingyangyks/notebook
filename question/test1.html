@@ -94,7 +94,7 @@
     <input type="text" style="width:500px;height:300px">564564
     <div>
         <ul id="header" class="5555">
-            <li class="pro">陕 西</li>
+            <li class="pro" id = "shan">陕 西</li>
             <li class="pro">江 西</li>
             <li class="pro">湖 南</li>
         </ul>
@@ -152,115 +152,31 @@
         </ul>
     </div>
     <script type="text/javascript">
-        window.addEventListener('load', function () {
-            // 事件委托
-            var entrust = document.getElementById('entrust');
-            entrust.addEventListener('click', function (event) {
-                event = event.target;
-                var eventLi = entrust.getElementsByTagName('li');
-                switch (event) {
-                    case eventLi[0]:
-                        alert('事件1被点击l');
-                        break;
-                    case eventLi[1]:
-                        alert('事件2被点击l');
-                        break;
-                    case eventLi[2]:
-                        alert('事件3被点击l');
-                        break;
-                    default:
-                        alert('others');
-                }
-                console.log(event);
-            })
-
-
-
-
-
-
-
-
-
-            // 通过一个函数处理多事件  
-            // event.type被触发的事件类型,
-            // event.target事件的目标
-            var btn = document.getElementById('btn');
-            var handler = function (event) {
-                switch (event.type) {
-                    case 'click':
-                        alert('clicked');
-                        // 阻止事件冒泡
-                        event.stopPropagation();
-                        break;
-                    case 'mouseover':
-                        event.target.style.backgroundColor = 'red';
-                        break;
-                    case 'mouseout':
-                        event.target.style.backgroundColor = '';
-                        break;
-                }
-            }
-            btn.addEventListener('click', handler);
-            btn.addEventListener('mouseover', handler);
-            btn.addEventListener('mouseout', handler);
-            // document.addEventListener('click',function () {
-            //     alert("twice");
-            // })
-
-            // 事件委托 事件处理程序过多且都比较类似的解决方案就是事件委托
-
-
-
-
-
-
-            var oli = document.createElement('li');
-            var oul = document.getElementById('header');
-            console.log(oul.attributes);
-            oul.appendChild(oli);
-            var odiv = document.createElement('div');
-            oul.insertBefore(odiv, oul.firstChild);
-
-
-            var oid = document.getElementById('header');
-            console.log(oid.childNodes);
-            console.log(oid.nodeName, oid.nodeType, oid.nodeValue)
-            //操作标题栏
-            tittleFun();
-            // 显示
-            deskFun();
-
-
-        })
-        function tittleFun() {
-            var provs = document.getElementsByClassName('pro');
-            for (var i = 0; i < provs.length; i++) {
-                provs[i].addEventListener('mouseover', function () {
-                    for (var j = 0; j < provs.length; j++) {
-                        provs[j].style.backgroundColor = "";
-                    }
-                    this.style.backgroundColor = "red";
-                })
-            }
-        };
-
-        function deskFun() {
-            var provs = document.getElementsByClassName('pro');
-            var city = document.getElementsByClassName('desk');
-
-            for (var i = 0; i < provs.length; i++) {
-                provs[i].index = i;
-                provs[i].addEventListener('mouseover', function () {
-                    for (var j = 0; j < city.length; j++) {
-                        city[j].classList.remove('show');
-                    }
-                    city[this.index].classList.add('show');
-                })
-            }
-            console.log('561')
+        function Elem(id) {
+            this.elem = document.getElementById(id);
         }
 
+        Elem.prototype.html = function (val) {
+            var elem = this.elem;
+            if (val) {
+                elem.innerHTML = val;
+                return this;
+            } else {
+                return elem.innerHTML;
+            }
+        }
+
+        Elem.prototype.on = function (type, fn) {
+            var elem = this.elem;
+            elem.addEventListener(type, fn);
+        }
+
+        var shanPro = new Elem('shan');
+        console.log(shanPro.html());
+        shanPro.on('click',function(){
+            alert('点击了陕西');
+            shanPro.html('浙江');
+        })
 
 
 
@@ -337,3 +253,12 @@
 </body>
 
 </html>
+console.log(1);
+setTimeout(function(){
+    console.log(2);
+},1000);
+console.log(3);
+setTimeout(function(){
+    console.log(4);
+},0);
+console.log(5);

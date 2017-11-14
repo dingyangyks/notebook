@@ -87,7 +87,7 @@ function objAndArr (fn,obj) {
     } else {
         for(key in obj) {
             if(obj.hasOwnProperty(key)){
-                fn(key,obj[key]);
+                fn(key,obj[key]);//key是一个定义的变量,通过变量查找属性要用方括号,查找属性是要在中括号中放置字符串形式的属性名
             }
         }
     }

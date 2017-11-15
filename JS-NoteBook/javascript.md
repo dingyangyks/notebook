@@ -240,3 +240,7 @@ alert(null === undefined);// false
 ## 10. `attrbitues`和`Property`的区别
 [链接](http://web.jobbole.com/83129/)
 
+## 11.`children`和`childNodes`的异同点
+
+`childNodes`:是标准属性,会返回空白的文本节点
+`children`:是非标准属性,会过滤掉空白的文本节点

@@ -84,8 +84,9 @@
 </head>
 
 <body>
-    <div id="btn">哈哈哈哈</div>
+    <div id="btn5">哈哈哈哈</div>
     <ul id="entrust">
+        奥斯卡换房间卡回复
         <li>事件 委托1</li>
         <li>事件 委托2</li>
         <li>事件 委托3</li>
@@ -151,32 +152,59 @@
                 <p>张家界：的地层复杂多样，造化了当地的特色景观。主要有山地、岩溶、丘陵、岗地和平原等。</li>
         </ul>
     </div>
+    <input type="button" value="哈哈哈" id="btn">哈哈哈 
     <script type="text/javascript">
-        function Elem(id) {
-            this.elem = document.getElementById(id);
+        // 事件绑定和事件委托的统一函数
+        function　bindEvent(elem,type,fn,parent) {
+            // elem.addEventListener(type,fn);
+            parent.addEventListener(type,function (e) {
+                var target = e.target;
+                if(target.matches(parent)){
+
+                }
+            })
         }
 
-        Elem.prototype.html = function (val) {
-            var elem = this.elem;
-            if (val) {
-                elem.innerHTML = val;
-                return this;
-            } else {
-                return elem.innerHTML;
-            }
-        }
-
-        Elem.prototype.on = function (type, fn) {
-            var elem = this.elem;
-            elem.addEventListener(type, fn);
-        }
-
-        var shanPro = new Elem('shan');
-        console.log(shanPro.html());
-        shanPro.on('click',function(){
-            alert('点击了陕西');
-            shanPro.html('浙江');
+        var btn = document.getElementById('btn');
+        bindEvent(btn,'click',function(){
+            console.log('kjahfklj ha ');
         })
+        https://www.lyblog.net/detail/601.html
+
+
+
+        // // var shan = document.getElementById('shan');
+        // var header = document.getElementById('header');
+        // console.log(header.childNodes);
+        // console.log(header.children);
+        
+        // header.appendChild(shan);
+
+        // function Elem(id) {
+        //     this.elem = document.getElementById(id);
+        // }
+
+        // Elem.prototype.html = function (val) {
+        //     var elem = this.elem;
+        //     if (val) {
+        //         elem.innerHTML = val;
+        //         return this;
+        //     } else {
+        //         return elem.innerHTML;
+        //     }
+        // }
+
+        // Elem.prototype.on = function (type, fn) {
+        //     var elem = this.elem;
+        //     elem.addEventListener(type, fn);
+        // }
+
+        // var shanPro = new Elem('shan');
+        // console.log(shanPro.html());
+        // shanPro.on('click',function(){
+        //     alert('点击了陕西');
+        //     shanPro.html('浙江');
+        // })
 
 
 

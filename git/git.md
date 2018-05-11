@@ -51,4 +51,9 @@
 
 * `git reset HEAD <file>` 把已经提交到暂存区的修改撤销，并重新放回工作区
 
+### 远程仓库修改 本地合并
+* `git fetch origin master` 把远程仓库的最新代码下载下来，以便进行合并(不可缺少)
 
+* `git log -p master origin/master` 比较远程仓库和本地仓库的区别
+
+* `git merge origin/master` 远程仓库和本地仓库合并
